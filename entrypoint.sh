@@ -15,4 +15,4 @@ DJANGO_SUPERUSER_PASSWORD="${DJANGO_SU_PASSWORD}" python manage.py createsuperus
 
 python manage.py collectstatic --noinput
 
-gunicorn truck_signs_designs.wsgi:application --bind 0:8000
+gunicorn truck_signs_designs.wsgi:application --bind 0:8000 --workers=3 --timeout=120 --worker-class=gthread
